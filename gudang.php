@@ -79,7 +79,7 @@ unset($_SESSION['status_message']);
             <header class="flex justify-between items-center mb-8">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-800">Operasional Gudang</h1>
-                    <p class="text-gray-500">Rekapan Realisasi BBM Gudang.</p>
+                    <p class="text-gray-500">Rekapan Realisasi dan Sisa BBM Gudang.</p>
                 </div>
                <div class="flex items-center gap-4">
                     <div class="flex items-center gap-2"><img src="https://placehold.co/40x40/E2E8F0/4A5568?text=A" alt="User Avatar" class="w-10 h-10 rounded-full"><span class="font-semibold text-gray-700"><?php echo htmlspecialchars($nama_user); ?></span></div>

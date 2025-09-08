@@ -9,7 +9,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 // --- KONEKSI DATABASE ---
-require_once 'koneksi.php'; 
+// Meskipun tidak dipakai untuk grafik, tetap diperlukan untuk fungsionalitas halaman lain
+require_once 'koneksi.php';
 
 // --- INISIALISASI VARIABEL ---
 $nama_user = $_SESSION['username'] ?? 'Admin Demo';
@@ -57,9 +58,8 @@ $isAdminActive = true; // Halaman admin selalu aktif jika file ini yang diakses
             <nav class="flex-1 p-4">
                 <ul>
                     <li class="mb-2">
-                        <!-- Menu Administrasi disederhanakan, tanpa submenu -->
                         <a href="admin.php" class="flex items-center gap-3 <?php echo $isAdminActive ? 'bg-blue-900' : ''; ?> rounded-md p-3 text-sm font-semibold">
-                            <i class="ph-fill ph-gear-six text-xl"></i>Administrasi
+                            <i class="ph-fill ph-chart-bar text-xl"></i>Dashboard
                         </a>
                     </li>
                     <li class="mb-2"><a href="kendaraan.php" class="flex items-center gap-3 rounded-md p-3 text-sm font-semibold text-blue-200 hover:text-white"><i class="ph-fill ph-truck text-xl"></i>Operasional Kendaraan</a></li>
@@ -106,6 +106,20 @@ $isAdminActive = true; // Halaman admin selalu aktif jika file ini yang diakses
                     <h2 class="font-bold text-lg text-gray-800">Data Kendaraan</h2>
                     <p class="text-sm text-gray-500 mt-1">Lihat dan kelola data operasional kendaraan.</p>
                 </a>
+            </div>
+
+            <!-- ========== AREA UNTUK METABASE ========== -->
+            <div class="mt-10 bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Analisis Konsumsi BBM per Kendaraan</h2>
+                
+                <!-- Iframe ini akan menampilkan grafik dari Metabase -->
+                <iframe
+                    src="http://localhost:3000/public/question/24602dea-ae87-48fa-a440-095f6c8fac7c"
+                    frameborder="0"
+                    width="100%"
+                    height="600"
+                    allowtransparency
+                ></iframe>
             </div>
 
             <footer class="text-center mt-12 py-4">
